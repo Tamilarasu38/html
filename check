@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        nav {
+            background-color: #ff6f00;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            margin: 20px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #ff6f00;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e65c00;
+        }
+        .admin-panel {
+            background-color: #f1f1f1;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .admin-panel h3 {
+            margin-top: 0;
+        }
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        input, select {
+            padding: 10px;
+            width: 100%;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <h1>Foodie Express</h1>
+    </nav>
+
+    <!-- User Pages -->
+    <div class="container">
+        <section id="restaurants">
+            <h2>Browse Restaurants</h2>
+            <div class="card">
+                <h3>Restaurant A</h3>
+                <p>Cuisine: Italian</p>
+                <button onclick="viewMenu()">View Menu</button>
+            </div>
+            <div class="card">
+                <h3>Restaurant B</h3>
+                <p>Cuisine: Indian</p>
+                <button onclick="viewMenu()">View Menu</button>
+            </div>
+        </section>
+
+        <section id="menu" style="display: none;">
+            <h2>Menu</h2>
+            <div class="card">
+                <h3>Pizza Margherita</h3>
+                <p>Price: $10</p>
+                <button onclick="placeOrder()">Add to Cart</button>
+            </div>
+            <div class="card">
+                <h3>Butter Chicken</h3>
+                <p>Price: $12</p>
+                <button onclick="placeOrder()">Add to Cart</button>
+            </div>
+        </section>
+
+        <section id="order-tracking" style="display: none;">
+            <h2>Track Your Order</h2>
+            <p>Status: Preparing your order...</p>
+        </section>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel">
+        <h2>Admin Panel</h2>
+        <section id="manage-restaurants">
+            <h3>Manage Restaurants</h3>
+            <div class="input-group">
+                <label for="restaurant-name">Restaurant Name</label>
+                <input type="text" id="restaurant-name">
+            </div>
+            <div class="input-group">
+                <label for="cuisine">Cuisine Type</label>
+                <select id="cuisine">
+                    <option value="Italian">Italian</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Chinese">Chinese</option>
+                </select>
+            </div>
+            <button onclick="addRestaurant()">Add Restaurant</button>
+        </section>
+
+        <section id="manage-menu" style="margin-top: 20px;">
+            <h3>Manage Menu</h3>
+            <div class="input-group">
+                <label for="menu-item">Menu Item</label>
+                <input type="text" id="menu-item">
+            </div>
+            <div class="input-group">
+                <label for="price">Price</label>
+                <input type="number" id="price">
+            </div>
+            <button onclick="addMenuItem()">Add Menu Item</button>
+        </section>
+
+        <section id="manage-orders" style="margin-top: 20px;">
+            <h3>Manage Orders</h3>
+            <div class="card">
+                <p>Order ID: 12345</p>
+                <p>Status: Preparing</p>
+                <button onclick="updateStatus()">Update Status</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function viewMenu() {
+            document.getElementById('restaurants').style.display = 'none';
+            document.getElementById('menu').style.display = 'block';
+        }
+
+        function placeOrder() {
+            alert("Order placed successfully!");
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('order-tracking').style.display = 'block';
+        }
+
+        function addRestaurant() {
+            alert("Restaurant added successfully!");
+        }
+
+        function addMenuItem() {
+            alert("Menu item added successfully!");
+        }
+
+        function updateStatus() {
+            alert("Order status updated!");
+        }
+    </script>
+</body>
+</html>
